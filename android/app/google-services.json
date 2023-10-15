@@ -1,0 +1,83 @@
+{
+  "project_info": {
+    "project_number": "740260013919",
+    "firebase_url": "https://flash-chat-3f2ab.firebaseio.com",
+    "project_id": "flash-chat-3f2ab",
+    "storage_bucket": "flash-chat-3f2ab.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740260013919:android:2039c9620207c240f638ea",
+        "android_client_info": {
+          "package_name": "co.julianakemi.flash_chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740260013919-b1k0ko7sji9bqmeqnh7i0a7e1ceovcub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG1_zGMnEhRINd5USXMnHMr7_zy67PY6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740260013919-b1k0ko7sji9bqmeqnh7i0a7e1ceovcub.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "740260013919-bfgc2699n7qqqqnj3duuujgil5onj8l9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.julianakemi.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:740260013919:android:a5ffc13c276f7a16f638ea",
+        "android_client_info": {
+          "package_name": "com.example.paw_finder"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "740260013919-b1k0ko7sji9bqmeqnh7i0a7e1ceovcub.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCG1_zGMnEhRINd5USXMnHMr7_zy67PY6Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "740260013919-b1k0ko7sji9bqmeqnh7i0a7e1ceovcub.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "740260013919-bfgc2699n7qqqqnj3duuujgil5onj8l9.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "co.julianakemi.flashChat"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
