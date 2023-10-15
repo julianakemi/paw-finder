@@ -27,14 +27,14 @@ class LoadingState extends CubitStates{
 //triggered after the data has been loaded successfully
 class LoadedState extends CubitStates{
   LoadedState(this.pets);
-  final List<PetModel> pets;
+  final List<Pet> pets;
   @override
   List<Object> get props => [pets]; 
 }
 
 class PetProfileState extends CubitStates{
   PetProfileState(this.pet);
-  final PetModel pet;
+  final Pet pet;
   @override
   List<Object> get props => [pet]; 
 }

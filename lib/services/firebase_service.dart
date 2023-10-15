@@ -5,10 +5,9 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 
 
 class DataServices {
-
-  Future<List<PetModel>> fetchPetsFromFirebase() async {
-  List<PetModel> petList = [];
-
+  //Retrieve data from Firebase
+  Future<List<Pet>> fetchPetsFromFirebase() async {
+  List<Pet> petList = [];
   try {
     // Reference to the "found" collection
     final collectionRef = FirebaseFirestore.instance.collection('found');
@@ -19,7 +18,7 @@ class DataServices {
     // Loop through the documents and convert them to PetModel instances
     for (QueryDocumentSnapshot doc in querySnapshot.docs) {
       Map<String, dynamic> data = doc.data() as Map<String, dynamic>;
-      PetModel pet = PetModel.fromJson(data);
+      Pet pet = Pet.fromJson(data);
       petList.add(pet);
       print(petList);
     }
@@ -30,26 +29,30 @@ class DataServices {
 
   return petList;
 }
+
+//Send data to Firebase
+Future<void> sendPetToFirebase(Pet pet) async {
+    try {
+      final collectionRef = FirebaseFirestore.instance.collection('found');
+
+      // Convert the PetModel to a Map
+      Map<String, dynamic> petData = {
+        'type': pet.type,
+        'img': pet.img,
+        'location': pet.location,
+        'breed': pet.breed,
+        'size': pet.size,
+        'gender': pet.gender,
+        'color': pet.color,
+        'description': pet.description,
+      };
+
+      // Add the pet data to the collection
+      await collectionRef.add(petData);
+    } catch (e) {
+      print("Error sending pet data to Firebase: $e");
+    }
+  }
+
 }
-
-
-
-
-//   String baseUrl = "get URL";
-//   Future<List<PetModel>> getInfo() async {
-//     var apiURL = 'getplaces';
-//     http.Response res = await http.get(Uri.parse(baseUrl + apiURL));
-//     try {
-//       if (res.statusCode == 200) {
-//         List<dynamic> list = json.decode(res.body);
-//         return list.map((e) => PetModel.fromJson(e)).toList();
-//       } else {
-//         return <PetModel>[];
-//       }
-//     } catch (e) {
-//       print(e);
-//       return <PetModel>[];
-//     }
-//   }
-// }
 

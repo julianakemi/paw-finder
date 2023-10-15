@@ -21,7 +21,7 @@ class AppCubits extends Cubit <CubitStates> {
     }
   }
 
-  petProfilePage(PetModel pet){
+  petProfilePage(Pet pet){
     emit(PetProfileState(pet));
   }
 

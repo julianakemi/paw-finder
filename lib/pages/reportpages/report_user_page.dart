@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:paw_finder/cubit/app_cubits.dart';
 import 'package:paw_finder/misc/colors.dart';
 import 'package:paw_finder/pages/reportpages/report_petinfo_page.dart';
+// import 'package:firebase_auth/firebase_auth.dart';
+import 'package:paw_finder/model/user_model.dart';
+// import 'package:paw_finder/services/auth_services.dart';
 
 class ReportUserPage extends StatefulWidget {
   const ReportUserPage({super.key});
@@ -12,6 +13,12 @@ class ReportUserPage extends StatefulWidget {
 }
 
 class _ReportUserPageState extends State<ReportUserPage> {
+  late String name;
+  late String phoneNumber;
+  late String email;
+  // late String password;
+  late User user;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -35,8 +42,7 @@ class _ReportUserPageState extends State<ReportUserPage> {
                       Text("Reportar animal encontrado",
                           style: TextStyle(
                               fontSize: 20, fontWeight: FontWeight.bold)),
-                      Text(
-                          "Forneca um meio de contato para que o dono consiga comunicar-se com voce."),
+                      Text("Crie uma conta para reportar um animal"),
                       SizedBox(
                         height: 30,
                       ),
@@ -46,27 +52,52 @@ class _ReportUserPageState extends State<ReportUserPage> {
                           labelText: "Seu nome",
                           hintText: "Maria da Silva",
                         ),
+                        onChanged: (value) {
+                          name = value;
+                        },
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.phone,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
                           labelText: "Telefone (WhatsApp)",
                           hintText: "(00)0000-0000",
                         ),
+                        onChanged: (value) {
+                          phoneNumber = value;
+                        },
                       ),
                       SizedBox(
                         height: 20,
                       ),
                       TextFormField(
+                        keyboardType: TextInputType.emailAddress,
                         decoration: const InputDecoration(
                           border: OutlineInputBorder(),
-                          labelText: "Seu email",
+                          labelText: "Email",
                           hintText: "email@email.com",
                         ),
+                        onChanged: (value) {
+                          email = value;
+                        },
                       ),
+                      //   SizedBox(
+                      //     height: 20,
+                      //   ),
+                      //   TextFormField(
+                      //     obscureText: true,
+                      //     decoration: const InputDecoration(
+                      //       border: OutlineInputBorder(),
+                      //       labelText: "Senha",
+                      //       hintText: "Senha de 6 digitos",
+                      //     ),
+                      //     onChanged: (value) {
+                      //       password = value;
+                      //     },
+                      //   ),
                     ],
                   ),
                 ),

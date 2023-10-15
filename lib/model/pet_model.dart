@@ -1,4 +1,4 @@
-class PetModel {
+class Pet {
   String type;
   String img;
   String location;
@@ -8,7 +8,7 @@ class PetModel {
   String color;
   String description;
 
-  PetModel({
+  Pet({
     required this.type,
     required this.img,
     required this.location,
@@ -18,7 +18,7 @@ class PetModel {
     required this.color,
     required this.description,
   });
-  factory PetModel.fromJson(Map <String, dynamic> json){
-    return PetModel(type: json["type"], img: json["img"], location: json["location"], breed: json["breed"], size: json["size"], gender: json["gender"], color: json["color"], description: json["description"]);
+  factory Pet.fromJson(Map <String, dynamic> json){
+    return Pet(type: json["type"], img: json["img"], location: json["location"], breed: json["breed"], size: json["size"], gender: json["gender"], color: json["color"], description: json["description"]);
   }
 }

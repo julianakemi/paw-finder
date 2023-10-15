@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:paw_finder/misc/colors.dart';
+import 'package:paw_finder/model/pet_model.dart';
+import 'package:paw_finder/model/user_model.dart';
 import 'package:paw_finder/pages/reportpages/report_pic_page.dart';
+import 'package:paw_finder/services/firebase_service.dart';
 
 class ReportPetInfoPage extends StatefulWidget {
   const ReportPetInfoPage({super.key});
@@ -16,12 +19,17 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
   String? _selectedGender;
   String? _selectedColor;
   String? _selectedSize;
+  TextEditingController descriptionController = TextEditingController();
+
   List<String> listEspecie = ["cachorro", "gato", "outro"];
   List<String> listLocation = ["Bairro 1", "Bairro 2", "Bairro 3"];
   List<String> listBreed = ["Raça 1", "Raça 2", "Raça 3"];
   List<String> listGender = ["Macho", "Fêmea", "Não sei"];
   List<String> listColor = ["Branco", "Preto", "Amarelo", "Malhado", "Marrom"];
   List<String> listSize = ["Pequeno", "Médio", "Grande"];
+
+  // Create an instance of DataServices
+  final dataServices = DataServices();
 
   @override
   Widget build(BuildContext context) {
@@ -280,6 +288,7 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
               height: 20,
             ),
             TextFormField(
+              controller: descriptionController,
               decoration: const InputDecoration(
                   border: OutlineInputBorder(),
                   labelText: "Descrição",
@@ -298,10 +307,27 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     elevation: 0,
                     foregroundColor: Colors.white),
                 onPressed: () {
+                  // Create a PetModel and populate it with form data
+                  Pet pet = Pet(
+                    type: _selectedEspecie ?? "",
+                    img: "",
+                    location: _selectedLocation ?? "",
+                    breed: _selectedBreed ?? "",
+                    size: _selectedSize ?? "",
+                    gender: _selectedGender ?? "",
+                    color: _selectedColor ?? "",
+                    description: descriptionController.text,
+                  );
+
+                  // Send the pet data to Firebase
+                  dataServices.sendPetToFirebase(pet);
+
+                  // Navigate to the next page (ReportPicPage)
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ReportPicPage()),
+                      builder: (context) => const ReportPicPage(),
+                    ),
                   );
                 },
                 child: Text("Continuar"),

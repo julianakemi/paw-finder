@@ -13,6 +13,8 @@ class WelcomePage extends StatefulWidget {
 }
 
 class _WelcomePageState extends State<WelcomePage> {
+
+  //TODO turn into map
   List images = ["animais1.png", "animais2.png", "animais3.png"];
 
   List title = ["Adoção", "Animais", "Reporte"];
