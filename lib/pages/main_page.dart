@@ -45,7 +45,7 @@ class _MainPageState extends State<MainPage> {
         items: [
           BottomNavigationBarItem(label:"Home", icon: Icon(Icons.apps)),
           BottomNavigationBarItem(label:"Adoção", icon: Icon(Icons.pets)),
-          BottomNavigationBarItem(label:"Achados", icon: Icon(Icons.search)),
+          BottomNavigationBarItem(label:"Encontrados", icon: Icon(Icons.search)),
           BottomNavigationBarItem(label:"Meu perfil", icon: Icon(Icons.person)),
         ]
       ),

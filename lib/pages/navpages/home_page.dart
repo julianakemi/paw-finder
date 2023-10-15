@@ -21,36 +21,71 @@ class _HomePageState extends State<HomePage> {
         var info = state.pets;
         return ListView(
           children: [
-            Container(
-                height: 200,
+            Stack(
+                clipBehavior: Clip.none,
                 alignment: Alignment.centerLeft,
-                width: double.infinity,
-                padding: const EdgeInsets.only(top: 80, left: 20),
-                decoration: BoxDecoration(color: AppColors.primary400),
-                child: Row(children: [
-                  Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Text("Encontrou um animal perdido?",
-                            style: TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.white)),
-                        SizedBox(height: 5),
-                        ElevatedButton(
-                          onPressed: () {
-                             BlocProvider.of<AppCubits>(context)
-                            .reportUserInfo();
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.white,
-                            elevation: 0,
-                            foregroundColor: AppColors.primary400,
+                children: [
+                  Container(
+                    width: double.infinity,
+                    height: MediaQuery.of(context).size.height / 4,
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                        image: AssetImage(
+                            'img/background-blob.png'), // Replace with your image
+                        fit: BoxFit.fill,
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    left: 40,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width / 3,
+                      child: Image.asset(
+                        'img/background-paws.png', // Replace with your image
+                        height: MediaQuery.of(context).size.width /
+                            2.5, // Maintain aspect ratio
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: -40,
+                    right: 0,
+                    child: SizedBox(
+                      width: MediaQuery.of(context).size.width / 2,
+                      child: Image.asset(
+                        'img/banner.png', // Replace with your image
+                        height: MediaQuery.of(context).size.width /
+                            2, // Maintain aspect ratio
+                      ),
+                    ),
+                  ),
+                  Container(
+                    width: MediaQuery.of(context).size.width / 2,
+                    padding: EdgeInsets.only(left: 20),
+                    child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text("Encontrou um animal perdido?",
+                              style: TextStyle(
+                                  fontSize: 20,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white)),
+                          SizedBox(height: 5),
+                          ElevatedButton(
+                            onPressed: () {
+                              BlocProvider.of<AppCubits>(context)
+                                  .reportUserInfo();
+                            },
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              elevation: 0,
+                              foregroundColor: AppColors.primary400,
+                            ),
+                            child: Text("Reporte"),
                           ),
-                          child: Text("Reporte"),
-                        ),
-                      ]),
-                ])),
+                        ]),
+                  )
+                ]),
             Container(
               padding: EdgeInsets.symmetric(horizontal: 10),
               margin: EdgeInsets.only(top: 20),
@@ -70,7 +105,7 @@ class _HomePageState extends State<HomePage> {
               ),
             ),
             SizedBox(
-              height: 360,
+              height: MediaQuery.of(context).size.height / 3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: info.length,
@@ -94,16 +129,14 @@ class _HomePageState extends State<HomePage> {
                       style:
                           TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                   TextButton(
-                      onPressed: () {
-
-                      },
+                      onPressed: () {},
                       child: Text("Ver todos",
                           style: TextStyle(color: AppColors.primary400)))
                 ],
               ),
             ),
             SizedBox(
-              height: 360,
+              height: MediaQuery.of(context).size.height / 3,
               child: ListView.builder(
                 scrollDirection: Axis.horizontal,
                 itemCount: info.length,

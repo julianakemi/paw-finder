@@ -1,6 +1,6 @@
 // import 'dart:convert';
 // import 'package:http/http.dart' as http;
-import 'package:paw_finder/model/data_model.dart';
+import 'package:paw_finder/model/pet_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
 

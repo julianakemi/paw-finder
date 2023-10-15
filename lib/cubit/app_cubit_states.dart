@@ -1,5 +1,5 @@
 import 'package:equatable/equatable.dart';
-import 'package:paw_finder/model/data_model.dart';
+import 'package:paw_finder/model/pet_model.dart';
 
 abstract class CubitStates extends Equatable{}
 
