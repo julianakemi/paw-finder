@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paw_finder/cubit/app_cubit_states.dart';
 import 'package:paw_finder/cubit/app_cubits.dart';
-import 'package:paw_finder/misc/colors.dart';
 import 'package:paw_finder/widgets/horizontal_card.dart';
 
 class SearchPage extends StatelessWidget {

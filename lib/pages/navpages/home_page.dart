@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paw_finder/cubit/app_cubit_states.dart';
 import 'package:paw_finder/cubit/app_cubits.dart';
 import 'package:paw_finder/misc/colors.dart';
+import 'package:paw_finder/pages/reportpages/report_user_page.dart';
 import 'package:paw_finder/widgets/vertical_card.dart';
 
 class HomePage extends StatefulWidget {
@@ -30,8 +31,7 @@ class _HomePageState extends State<HomePage> {
                     height: MediaQuery.of(context).size.height / 4,
                     decoration: BoxDecoration(
                       image: DecorationImage(
-                        image: AssetImage(
-                            'img/background-blob.png'), // Replace with your image
+                        image: AssetImage('img/background-blob.png'),
                         fit: BoxFit.fill,
                       ),
                     ),
@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                     child: SizedBox(
                       width: MediaQuery.of(context).size.width / 3,
                       child: Image.asset(
-                        'img/background-paws.png', // Replace with your image
+                        'img/background-paws.png',
                         height: MediaQuery.of(context).size.width /
                             2.5, // Maintain aspect ratio
                       ),
@@ -73,8 +73,12 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: 5),
                           ElevatedButton(
                             onPressed: () {
-                              BlocProvider.of<AppCubits>(context)
-                                  .reportUserInfo();
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) =>
+                                        const ReportUserPage()),
+                              );
                             },
                             style: ElevatedButton.styleFrom(
                               backgroundColor: Colors.white,

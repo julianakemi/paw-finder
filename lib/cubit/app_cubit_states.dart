@@ -39,22 +39,3 @@ class PetProfileState extends CubitStates{
   List<Object> get props => [pet]; 
 }
 
-class ReportPetInfoState extends CubitStates{
-  @override
-  //TODO: implement props
-  List<Object> get props => []; 
-}
-
-class ReportUserInfoState extends CubitStates{
-  @override
-  //TODO: implement props
-  List<Object> get props => []; 
-}
-
-class ReportPicState extends CubitStates{
-  @override
-  //TODO: implement props
-  List<Object> get props => []; 
-}
-
-

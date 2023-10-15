@@ -14,7 +14,7 @@ class VerticalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: SizedBox(
-        width: 220,
+        width: MediaQuery.of(context).size.width / 2.3,
         child: Column(
           children: [
             Flexible(
@@ -33,7 +33,7 @@ class VerticalCard extends StatelessWidget {
               ),
             ),
             Container(
-              padding: EdgeInsets.all(20),
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.only(bottomLeft: Radius.circular(10), bottomRight: Radius.circular(10)),

@@ -29,7 +29,7 @@ class HorizontalCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Card(
       child: SizedBox(
-        height: 180,
+        height: 150,
         width: double.infinity,
         child: Row(
           children: [
@@ -56,7 +56,7 @@ class HorizontalCard extends StatelessWidget {
             Flexible(
               flex: 3,
               child: Container(
-                  padding: EdgeInsets.all(20),
+                  padding: EdgeInsets.all(14),
                   decoration: BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.only(

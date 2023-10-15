@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paw_finder/cubit/app_cubit_logics.dart';
 import 'package:paw_finder/cubit/app_cubits.dart';
+import 'package:paw_finder/misc/colors.dart';
 import 'package:provider/provider.dart';
 //Firebase
 import 'package:firebase_core/firebase_core.dart';
@@ -22,10 +23,10 @@ class MyApp extends StatelessWidget {
     return ChangeNotifierProvider(
       create: (context) => MyAppState(),
       child: MaterialApp(
-        title: 'Namer App',
+        title: 'Paw Finder',
         theme: ThemeData(
           useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
+          colorScheme: ColorScheme.fromSeed(seedColor: AppColors.primary400),
         ),
         home:BlocProvider<AppCubits>(
           create: (context) => AppCubits(
