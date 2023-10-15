@@ -17,9 +17,9 @@ class HorizontalCard extends StatelessWidget {
       this.img});
 
   Icon getGenderIcon() {
-    if (gender == "female") {
+    if (gender == "Fêmea") {
       return Icon(Icons.female, size: 30, color: AppColors.primary400);
-    } else if (gender == "male") {
+    } else if (gender == "Macho") {
       return Icon(Icons.male, size: 30, color: AppColors.primary400);
     }
     return Icon(Icons.pets, size: 30, color: AppColors.primary400);

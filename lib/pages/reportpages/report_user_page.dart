@@ -114,10 +114,13 @@ class _ReportUserPageState extends State<ReportUserPage> {
                   foregroundColor: Colors.white,
                 ),
                 onPressed: () {
+                  user = User(name: name, email: email, phoneNumber: phoneNumber);
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                        builder: (context) => const ReportPetInfoPage()),
+                      builder: (context) =>
+                          ReportPetInfoPage(user: user), // Pass the user object
+                    ),
                   );
                 },
                 child: Text("Continuar"),

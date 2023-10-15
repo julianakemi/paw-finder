@@ -6,7 +6,8 @@ import 'package:paw_finder/pages/reportpages/report_pic_page.dart';
 import 'package:paw_finder/services/firebase_service.dart';
 
 class ReportPetInfoPage extends StatefulWidget {
-  const ReportPetInfoPage({super.key});
+  final User user;
+  const ReportPetInfoPage({required this.user, super.key});
 
   @override
   State<ReportPetInfoPage> createState() => _ReportPetInfoPageState();
@@ -306,7 +307,9 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     backgroundColor: AppColors.primary400,
                     elevation: 0,
                     foregroundColor: Colors.white),
+
                 onPressed: () {
+                  print(widget.user);
                   // Create a PetModel and populate it with form data
                   Pet pet = Pet(
                     type: _selectedEspecie ?? "",
@@ -317,19 +320,21 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     gender: _selectedGender ?? "",
                     color: _selectedColor ?? "",
                     description: descriptionController.text,
+                    userid: "",
                   );
 
-                  // Send the pet data to Firebase
-                  dataServices.sendPetToFirebase(pet);
-
-                  // Navigate to the next page (ReportPicPage)
+                  // Navigate to the next page (ReportPicPage) and pass user and pet as parameters
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) => const ReportPicPage(),
+                      builder: (context) => ReportPicPage(
+                        user: widget.user,
+                        pet: pet,
+                      ),
                     ),
                   );
                 },
+
                 child: Text("Continuar"),
               ),
             )
