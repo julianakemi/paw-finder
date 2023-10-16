@@ -5,7 +5,6 @@ import 'package:paw_finder/model/pet_model.dart';
 import 'package:paw_finder/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:paw_finder/pages/navpages/search_page.dart';
 import 'dart:io';
 
 
@@ -125,7 +124,6 @@ class _ReportPicPageState extends State<ReportPicPage> {
                   await FirebaseFirestore.instance
                       .collection('found')
                       .add(widget.pet.toJson());
-
                 },
                 child: Text("Reportar"),
               ),

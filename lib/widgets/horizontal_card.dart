@@ -91,7 +91,7 @@ class HorizontalCard extends StatelessWidget {
                               Icon(Icons.calendar_month_outlined),
                               Flexible(
                                 child: Text(
-                                  date,
+                                  "13/10/2023",
                                   softWrap: true,
                                 ),
                               )

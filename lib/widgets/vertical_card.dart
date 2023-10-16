@@ -50,7 +50,7 @@ class VerticalCard extends StatelessWidget {
                   Row(
                     children: [
                       Icon(Icons.calendar_month_outlined),
-                      Text(date)
+                      Text("13/10/2023")
                     ],
                   )
               ],)

@@ -114,12 +114,18 @@ class _HomePageState extends State<HomePage> {
                 scrollDirection: Axis.horizontal,
                 itemCount: info.length,
                 itemBuilder: (context, index) {
-                  return Padding(
+                  return Container(
                     padding: EdgeInsets.all(8.0),
-                    child: VerticalCard(
-                        img: info[index].img,
-                        location: info[index].location,
-                        date: info[index].color),
+                    child: GestureDetector(
+                        onTap: () {
+                          // Dispatch the petProfilePage action with the pet object
+                          BlocProvider.of<AppCubits>(context)
+                              .petProfilePage(info[index]);
+                        },
+                        child: VerticalCard(
+                            img: info[index].img,
+                            location: info[index].location,
+                            date: info[index].color)),
                   );
                 },
               ),
