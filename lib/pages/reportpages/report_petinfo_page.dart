@@ -34,6 +34,7 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
 
   @override
   Widget build(BuildContext context) {
+  
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
@@ -307,7 +308,6 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     backgroundColor: AppColors.primary400,
                     elevation: 0,
                     foregroundColor: Colors.white),
-
                 onPressed: () {
                   print(widget.user);
                   // Create a PetModel and populate it with form data
@@ -320,7 +320,6 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     gender: _selectedGender ?? "",
                     color: _selectedColor ?? "",
                     description: descriptionController.text,
-                    userid: "",
                   );
 
                   // Navigate to the next page (ReportPicPage) and pass user and pet as parameters
@@ -334,7 +333,6 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     ),
                   );
                 },
-
                 child: Text("Continuar"),
               ),
             )

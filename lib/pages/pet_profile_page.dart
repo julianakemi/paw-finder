@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paw_finder/cubit/app_cubit_states.dart';
 import 'package:paw_finder/cubit/app_cubits.dart';
 import 'package:paw_finder/misc/colors.dart';
+import 'package:paw_finder/model/pet_model.dart';
 import 'package:paw_finder/widgets/information_box.dart';
 
 class PetProfilePage extends StatefulWidget {
@@ -33,7 +34,7 @@ class _PetProfilePageState extends State<PetProfilePage> {
                       decoration: BoxDecoration(
                         //TODO implement image from database
                         image: DecorationImage(
-                            image: AssetImage("img/dog3.jpg"), fit: BoxFit.cover),
+                            image: NetworkImage(petProfile.pet.img), fit: BoxFit.cover),
                       ),
                     )),
                 Positioned(

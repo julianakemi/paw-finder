@@ -17,19 +17,20 @@ class SearchPage extends StatelessWidget {
           children: [
             Stack(children: [
               Container(
-                    width: double.infinity,
-                    height: MediaQuery.of(context).size.height / 3.3,
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                        image: AssetImage(
-                            'img/background-blob.png'), // Replace with your image
-                        fit: BoxFit.fill,
-                      ),
+                  width: double.infinity,
+                  height: MediaQuery.of(context).size.height / 3.3,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage(
+                          'img/background-blob.png'), // Replace with your image
+                      fit: BoxFit.fill,
                     ),
-                    child: SafeArea(
-                      child: Padding(
-                        padding: const EdgeInsets.only(top:36.0, left: 14, right: 14),
-                        child: Column(
+                  ),
+                  child: SafeArea(
+                    child: Padding(
+                      padding:
+                          const EdgeInsets.only(top: 36.0, left: 14, right: 14),
+                      child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text("Busque seu pet",
@@ -43,8 +44,9 @@ class SearchPage extends StatelessWidget {
                               return SearchBar(
                                 hintText: "Busque por bairro",
                                 controller: controller,
-                                padding: const MaterialStatePropertyAll<EdgeInsets>(
-                                    EdgeInsets.symmetric(horizontal: 16.0)),
+                                padding:
+                                    const MaterialStatePropertyAll<EdgeInsets>(
+                                        EdgeInsets.symmetric(horizontal: 16.0)),
                                 onTap: () {
                                   controller.openView();
                                 },
@@ -58,8 +60,8 @@ class SearchPage extends StatelessWidget {
                                     child: IconButton(
                                       onPressed: () {},
                                       icon: const Icon(Icons.filter_list),
-                                      selectedIcon:
-                                          const Icon(Icons.brightness_2_outlined),
+                                      selectedIcon: const Icon(
+                                          Icons.brightness_2_outlined),
                                     ),
                                   )
                                 ],
@@ -75,9 +77,8 @@ class SearchPage extends StatelessWidget {
                               });
                             }),
                           ]),
-                      ),
-                    )
-                  ),
+                    ),
+                  )),
             ]),
             Expanded(
               child: ListView.builder(
@@ -85,6 +86,7 @@ class SearchPage extends StatelessWidget {
                 itemCount: info.length,
                 itemBuilder: (context, index) {
                   return HorizontalCard(
+                      img: info[index].img,
                       location: info[index].location,
                       date: info[index].color,
                       breed: info[index].breed,

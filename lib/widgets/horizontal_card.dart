@@ -6,7 +6,7 @@ class HorizontalCard extends StatelessWidget {
   final String date;
   final String breed;
   final String gender;
-  final Image? img;
+  final String img;
 
   const HorizontalCard(
       {super.key,
@@ -14,7 +14,7 @@ class HorizontalCard extends StatelessWidget {
       required this.date,
       required this.breed,
       required this.gender,
-      this.img});
+      required this.img});
 
   Icon getGenderIcon() {
     if (gender == "Fêmea") {
@@ -45,8 +45,8 @@ class HorizontalCard extends StatelessWidget {
                     borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(10),
                         bottomLeft: Radius.circular(10)),
-                    child: Image.asset(
-                      "img/dog1.jpg",
+                    child: Image.network(
+                      img,
                       //TODO add image
                       fit: BoxFit.cover,
                       width: double.infinity,

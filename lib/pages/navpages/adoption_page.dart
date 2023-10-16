@@ -85,6 +85,7 @@ class AdoptionPage extends StatelessWidget {
                 itemCount: info.length,
                 itemBuilder: (context, index) {
                   return HorizontalCard(
+                      img: info[index].img,
                       location: info[index].location,
                       date: info[index].color,
                       breed: info[index].breed,

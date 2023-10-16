@@ -5,7 +5,9 @@ import 'package:paw_finder/model/pet_model.dart';
 import 'package:paw_finder/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:paw_finder/pages/navpages/search_page.dart';
 import 'dart:io';
+
 
 class ReportPicPage extends StatefulWidget {
   final User user;
@@ -109,10 +111,10 @@ class _ReportPicPageState extends State<ReportPicPage> {
                 ),
                 onPressed: () async {
                   if (selectedImage != null) {
-                    //Upload image to firebase storage 
-                      uploadFile(selectedImage);
+                    //Upload image to firebase storage
+                    uploadFile(selectedImage);
                     //update pet's image with the image URL
-                      widget.pet.img = imageURL;
+                    widget.pet.img = imageURL;
                   }
                   // Send user data to the "users" collection
                   await FirebaseFirestore.instance
@@ -123,8 +125,9 @@ class _ReportPicPageState extends State<ReportPicPage> {
                   await FirebaseFirestore.instance
                       .collection('found')
                       .add(widget.pet.toJson());
+
                 },
-                child: Text("Continuar"),
+                child: Text("Reportar"),
               ),
             ),
           ],

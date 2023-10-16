@@ -7,7 +7,6 @@ class Pet {
   String gender;
   String color;
   String description;
-  String userid;
 
   Pet({
     required this.type,
@@ -18,7 +17,6 @@ class Pet {
     required this.gender,
     required this.color,
     required this.description,
-    required this.userid
   });
 
   Map<String, dynamic> toJson() {
@@ -31,11 +29,10 @@ class Pet {
       'gender': gender,
       'color': color,
       'description': description,
-      'usersd': userid,
     };
   }
 
   factory Pet.fromJson(Map <String, dynamic> json){
-    return Pet(type: json["type"], img: json["img"], location: json["location"], breed: json["breed"], size: json["size"], gender: json["gender"], color: json["color"], description: json["description"], userid: json["userid"]);
+    return Pet(type: json["type"], img: json["img"], location: json["location"], breed: json["breed"], size: json["size"], gender: json["gender"], color: json["color"], description: json["description"]);
   }
 }
