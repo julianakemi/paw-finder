@@ -114,21 +114,24 @@ class _ReportUserPageState extends State<ReportUserPage> {
                   elevation: 0,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () async {
-                  user = User(name: name, email: email, phoneNumber: phoneNumber);
+ onPressed: () async {
+            user = User(name: name, email: email, phoneNumber: phoneNumber);
 
-                  // Send user data to the "users" collection
-                  await FirebaseFirestore.instance
-                      .collection('users')
-                      .add(user.toJson());
-
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          ReportPetInfoPage(user: user), // Pass the user object
-                    ),
-                  );
+            // Send user data to the "users" collection and get the document ID
+            DocumentReference userDocumentReference =
+                await FirebaseFirestore.instance.collection('users').add(user.toJson());
+            
+            // Obtain the document ID
+            String userDocumentId = userDocumentReference.id;
+            // Navigate to the ReportPetInfoPage and pass the user and document ID
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ReportPetInfoPage(
+                  userDocumentId: userDocumentId, // Pass the user document ID
+                ),
+              ),
+            );
                 },
                 child: Text("Continuar"),
               ),

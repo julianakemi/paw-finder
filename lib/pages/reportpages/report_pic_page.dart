@@ -2,7 +2,6 @@ import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:paw_finder/misc/colors.dart';
 import 'package:paw_finder/model/pet_model.dart';
-import 'package:paw_finder/model/user_model.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
@@ -10,10 +9,9 @@ import 'dart:io';
 import 'package:paw_finder/pages/pet_profile_page.dart';
 
 class ReportPicPage extends StatefulWidget {
-  final User user;
   final Pet pet;
 
-  const ReportPicPage({required this.user, required this.pet, super.key});
+  const ReportPicPage({required this.pet, super.key});
 
   @override
   State<ReportPicPage> createState() => _ReportPicPageState();
@@ -116,15 +114,15 @@ class _ReportPicPageState extends State<ReportPicPage> {
                     //update pet's image with the image URL
                     widget.pet.img = imageURL;
                   }
-                  // Send user data to the "users" collection
-                  await FirebaseFirestore.instance
-                      .collection('users')
-                      .add(widget.user.toJson());
 
+                  // Set the createdAt field to the current server timestamp
+                  Map<String, dynamic> petData = widget.pet.toJson();
+
+                  petData['createdAt'] = FieldValue.serverTimestamp();
                   // Send pet data to the "found" collection
                   await FirebaseFirestore.instance
                       .collection('found')
-                      .add(widget.pet.toJson());
+                      .add(petData);
 
                   // Navigate to the PetProfilePage with the pet data as an argument
                   Navigator.of(context).push(

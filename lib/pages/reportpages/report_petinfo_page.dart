@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:paw_finder/misc/colors.dart';
 import 'package:paw_finder/model/pet_model.dart';
-import 'package:paw_finder/model/user_model.dart';
 import 'package:paw_finder/pages/reportpages/report_pic_page.dart';
 import 'package:paw_finder/services/firebase_service.dart';
 
 class ReportPetInfoPage extends StatefulWidget {
-  final User user;
-  const ReportPetInfoPage({required this.user, super.key});
+  final String userDocumentId;
+  const ReportPetInfoPage({required this.userDocumentId, super.key});
 
   @override
   State<ReportPetInfoPage> createState() => _ReportPetInfoPageState();
@@ -20,6 +19,7 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
   String? _selectedGender;
   String? _selectedColor;
   String? _selectedSize;
+  late String userDocumentId;
   TextEditingController descriptionController = TextEditingController();
 
   List<String> listEspecie = ["cachorro", "gato", "outro"];
@@ -34,7 +34,7 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
 
   @override
   Widget build(BuildContext context) {
-  
+    userDocumentId = widget.userDocumentId;
     return Scaffold(
         body: SafeArea(
       child: SingleChildScrollView(
@@ -309,25 +309,24 @@ class _ReportPetInfoPageState extends State<ReportPetInfoPage> {
                     elevation: 0,
                     foregroundColor: Colors.white),
                 onPressed: () {
-                  print(widget.user);
                   // Create a PetModel and populate it with form data
                   Pet pet = Pet(
-                    type: _selectedEspecie ?? "",
-                    img: "",
-                    location: _selectedLocation ?? "",
-                    breed: _selectedBreed ?? "",
-                    size: _selectedSize ?? "",
-                    gender: _selectedGender ?? "",
-                    color: _selectedColor ?? "",
-                    description: descriptionController.text,
-                  );
+                      type: _selectedEspecie ?? "",
+                      img: "",
+                      location: _selectedLocation ?? "",
+                      breed: _selectedBreed ?? "",
+                      size: _selectedSize ?? "",
+                      gender: _selectedGender ?? "",
+                      color: _selectedColor ?? "",
+                      description: descriptionController.text,
+                      userDocumentId: userDocumentId,
+                      );
 
                   // Navigate to the next page (ReportPicPage) and pass user and pet as parameters
                   Navigator.push(
                     context,
                     MaterialPageRoute(
                       builder: (context) => ReportPicPage(
-                        user: widget.user,
                         pet: pet,
                       ),
                     ),
