@@ -4,15 +4,18 @@ class VerticalCard extends StatelessWidget {
   final String location;
   final String date;
   final String img;
+  final Function() onTap;
 
   const VerticalCard({super.key,
   required this.location,
   required this.date,
-  required this.img});
+  required this.img,
+  required this.onTap});
 
   @override
   Widget build(BuildContext context) {
-    return Card(
+    return InkWell(
+      onTap: onTap,
       child: SizedBox(
         width: MediaQuery.of(context).size.width / 2.3,
         child: Column(
@@ -25,7 +28,6 @@ class VerticalCard extends StatelessWidget {
                 child: ClipRRect(
                   borderRadius: BorderRadius.only(topLeft: Radius.circular(10), topRight: Radius.circular(10)),
                   child: Image.network(img,
-                  //TODO implement img from database
                   fit: BoxFit.cover,
                   width: double.infinity,
                   ),

@@ -5,6 +5,7 @@ import 'package:paw_finder/pages/navpages/home_page.dart';
 import 'package:paw_finder/pages/navpages/search_page.dart';
 import 'package:paw_finder/pages/navpages/user_profile.dart';
 
+
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
 

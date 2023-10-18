@@ -7,6 +7,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
+import 'package:paw_finder/pages/pet_profile_page.dart';
 
 class ReportPicPage extends StatefulWidget {
   final User user;
@@ -124,6 +125,15 @@ class _ReportPicPageState extends State<ReportPicPage> {
                   await FirebaseFirestore.instance
                       .collection('found')
                       .add(widget.pet.toJson());
+
+                  // Navigate to the PetProfilePage with the pet data as an argument
+                  Navigator.of(context).push(
+                    MaterialPageRoute(
+                      builder: (context) => PetProfilePage(
+                        petInfo: widget.pet,
+                      ),
+                    ),
+                  );
                 },
                 child: Text("Reportar"),
               ),

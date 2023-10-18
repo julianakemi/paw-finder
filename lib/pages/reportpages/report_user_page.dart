@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:paw_finder/misc/colors.dart';
 import 'package:paw_finder/pages/reportpages/report_petinfo_page.dart';
@@ -113,8 +114,14 @@ class _ReportUserPageState extends State<ReportUserPage> {
                   elevation: 0,
                   foregroundColor: Colors.white,
                 ),
-                onPressed: () {
+                onPressed: () async {
                   user = User(name: name, email: email, phoneNumber: phoneNumber);
+
+                  // Send user data to the "users" collection
+                  await FirebaseFirestore.instance
+                      .collection('users')
+                      .add(user.toJson());
+
                   Navigator.push(
                     context,
                     MaterialPageRoute(

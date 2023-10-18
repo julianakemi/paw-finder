@@ -6,7 +6,6 @@ abstract class CubitStates extends Equatable{}
 //initializes cubit
 class InitialState extends CubitStates{
   @override
-  //TODO: implement props
   List<Object> get props => []; 
 }
 
@@ -20,7 +19,6 @@ class WelcomeState extends CubitStates{
 //triggered when laoding the data
 class LoadingState extends CubitStates{
   @override
-  //TODO: implement props
   List<Object> get props => []; 
 }
 
@@ -32,10 +30,4 @@ class LoadedState extends CubitStates{
   List<Object> get props => [pets]; 
 }
 
-class PetProfileState extends CubitStates{
-  PetProfileState(this.pet);
-  final Pet pet;
-  @override
-  List<Object> get props => [pet]; 
-}
 

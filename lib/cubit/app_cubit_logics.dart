@@ -4,7 +4,6 @@ import 'package:paw_finder/cubit/app_cubit_states.dart';
 import 'package:paw_finder/cubit/app_cubits.dart';
 import 'package:paw_finder/misc/colors.dart';
 import 'package:paw_finder/pages/main_page.dart';
-import 'package:paw_finder/pages/pet_profile_page.dart';
 import 'package:paw_finder/pages/welcome_page.dart';
 
 class AppCubitLogics extends StatefulWidget {
@@ -24,9 +23,6 @@ class _AppCubitLogicsState extends State<AppCubitLogics> {
         }
         if (state is LoadedState) {
           return MainPage();
-        }
-        if (state is PetProfileState) {
-          return PetProfilePage();
         }
         if (state is LoadingState) {
           return Center(

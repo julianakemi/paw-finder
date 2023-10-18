@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:paw_finder/cubit/app_cubit_states.dart';
 import 'package:paw_finder/cubit/app_cubits.dart';
 import 'package:paw_finder/misc/colors.dart';
+import 'package:paw_finder/pages/pet_profile_page.dart';
 import 'package:paw_finder/pages/reportpages/report_user_page.dart';
 import 'package:paw_finder/widgets/vertical_card.dart';
 
@@ -115,18 +116,19 @@ class _HomePageState extends State<HomePage> {
                 itemCount: info.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                        onTap: () {
-                          // Dispatch the petProfilePage action with the pet object
-                          BlocProvider.of<AppCubits>(context)
-                              .petProfilePage(info[index]);
-                        },
-                        child: VerticalCard(
-                            img: info[index].img,
-                            location: info[index].location,
-                            date: info[index].color)),
-                  );
+                      padding: EdgeInsets.all(8.0),
+                      child: VerticalCard(
+                          img: info[index].img,
+                          location: info[index].location,
+                          date: info[index].color,
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    PetProfilePage(petInfo: info[index]),
+                              ),
+                            );
+                          }));
                 },
               ),
             ),
@@ -153,18 +155,19 @@ class _HomePageState extends State<HomePage> {
                 itemCount: info.length,
                 itemBuilder: (context, index) {
                   return Container(
-                    padding: EdgeInsets.all(8.0),
-                    child: GestureDetector(
-                        onTap: () {
-                          // Dispatch the petProfilePage action with the pet object
-                          BlocProvider.of<AppCubits>(context)
-                              .petProfilePage(info[index]);
-                        },
-                        child: VerticalCard(
-                            img: info[index].img,
-                            location: info[index].location,
-                            date: info[index].color)),
-                  );
+                      padding: EdgeInsets.all(8.0),
+                      child: VerticalCard(
+                          img: info[index].img,
+                          location: info[index].location,
+                          date: info[index].color,
+                          onTap: () {
+                            Navigator.of(context).push(
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    PetProfilePage(petInfo: info[index]),
+                              ),
+                            );
+                          }));
                 },
               ),
             )
